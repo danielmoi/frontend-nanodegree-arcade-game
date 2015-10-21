@@ -100,8 +100,8 @@ Player.prototype.handleInput = function (key) {
     break;
 
   case 'down':
-    if (this.y === 400) {
-      this.y = 400;
+    if (this.y === 392) {
+      this.y = 392;
     } else {
       this.y += 83;
       console.log("down", this.x, this.y);

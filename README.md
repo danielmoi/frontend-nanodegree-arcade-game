@@ -16,4 +16,8 @@ This game is a basic clone of the classic Frogger arcade game.
 **Controls:**
 Use the 4 arrow keys (Left, Right, Up, Down)
 
+**Let's Go!** – You can access my game here: http://danielmoi.com/arcade
+
+**Code:** You can access my project repo here: https://github.com/dm4000/frontend-nanodegree-arcade-game
+
 I hope you like my game clone, and enjoying playing it!
