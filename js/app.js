@@ -32,15 +32,6 @@ Enemy.prototype.update = function (dt) {
   ) {
     player.resetPosition();
   }
-
-<<<<<<< HEAD
-||||||| merged common ancestors
-  
-=======
-
-
-
->>>>>>> origin/master
 };
 
 
@@ -76,34 +67,11 @@ Player.prototype.render = function () {
 
 
 
-
-
-
 // a handleInput() method.
 
 Player.prototype.handleInput = function (key) {
-<<<<<<< HEAD
-
-  // Message when player reaches river
-  var messageTop = function () {
-    var messageStart = function () {
-      ctx.textAlign = "center";
-      ctx.font = "40px Helvetica";
-      ctx.fillStyle = "black";
-      ctx.fillText("You made it to the top!", 100, 900);
-      
-
-    }
-//    setTimeout(messageStart, 5000);
-  };
-
-  if (key === 'left') {
-||||||| merged common ancestors
-  if (key === 'left') {
-=======
   switch (key) {
   case 'left':
->>>>>>> origin/master
     if (this.x === 0) {
       this.x = 0;
     } else {
@@ -119,25 +87,10 @@ Player.prototype.handleInput = function (key) {
       this.x += 100;
       console.log("right", this.x, this.y);
     }
-<<<<<<< HEAD
-  } else if (key === 'up') {
-    if (this.y === -23) {
-      messageTop();
-      ctx.textAlign = "center";
-      ctx.font = "40px Helvetica";
-      ctx.fillStyle = "black";
-      ctx.fillText("You made it to the top!", 100, 900);
-      ctx.drawImage(Resources.get(rowImages[0], 100, 100);
-
-||||||| merged common ancestors
-  } else if (key === 'up') {
-    if (this.y === -23) { // not sure why this can't be -15
-=======
     break;
 
   case 'up':
     if (this.y === 60) {
->>>>>>> origin/master
       this.resetPosition();
     } else {
       this.y -= 83;
@@ -159,65 +112,57 @@ Player.prototype.handleInput = function (key) {
 };
 
 Player.prototype.resetPosition = function () {
-  this.x = 200; // 200
-  this.y = 392; // 392
-<<<<<<< HEAD
-        ctx.fillText("You made it to the top!", 100, 900);
-
-}
-||||||| merged common ancestors
-}
-=======
-};
->>>>>>> origin/master
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-
-var allEnemies = [];
+    this.x = 200; // 200
+    this.y = 392; // 392
 
 
-for (var i = 0; i < 3; i++) {
-  allEnemies.push(new Enemy(-50, 60 + (83 * i), randomSpeed())); //60
-}
+    // Now instantiate your objects.
+    // Place all enemy objects in an array called allEnemies
+
+    var allEnemies = [];
+
+
+    for (var i = 0; i < 3; i++) {
+      allEnemies.push(new Enemy(-50, 60 + (83 * i), randomSpeed())); //60
+    }
 
 
 
-// Place the player object in a variable called player
+    // Place the player object in a variable called player
 
-var player = new Player(200, 392);
+    var player = new Player(200, 392);
 
 
 
 
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function (e) {
-  var allowedKeys = {
-    37: 'left',
-    38: 'up',
-    39: 'right',
-    40: 'down'
-  };
+    // This listens for key presses and sends the keys to your
+    // Player.handleInput() method. You don't need to modify this.
+    document.addEventListener('keyup', function (e) {
+      var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+      };
 
-  player.handleInput(allowedKeys[e.keyCode]);
-});
+      player.handleInput(allowedKeys[e.keyCode]);
+    });
 
-// Using jQuery for logging click locations
-var clickLocations = [];
+    // Using jQuery for logging click locations
+    var clickLocations = [];
 
-function logClicks(x, y) {
-  clickLocations.push({
-    x: x,
-    y: y
-  });
-  console.log('x location: ' + x + '; y location: ' + y);
-}
+    function logClicks(x, y) {
+      clickLocations.push({
+        x: x,
+        y: y
+      });
+      console.log('x location: ' + x + '; y location: ' + y);
+    }
 
-$(document).click(function (loc) {
-  // your code goes here!
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x, y);
-});
+    $(document).click(function (loc) {
+      // your code goes here!
+      var x = loc.pageX;
+      var y = loc.pageY;
+      logClicks(x, y);
+    });
