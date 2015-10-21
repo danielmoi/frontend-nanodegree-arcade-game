@@ -25,23 +25,23 @@ Enemy.prototype.update = function (dt) {
     this.x = this.x += this.speed * dt;
   }
 
-  if (player.x + 70 >= this.x &&// player.right is_right_of enemy.left
-      player.x <= this.x + 70 && // player.left is_left_of enemy.right
-      player.y + 50 <= this.y + 100 && // player.top is_above enemy.bottom
-      player.y + 100 >= this.y + 50// player.bottom is_below enemy.top
-     ) {
+  if (player.x + 70 >= this.x && // player.right is_right_of enemy.left
+    player.x <= this.x + 70 && // player.left is_left_of enemy.right
+    player.y + 50 <= this.y + 100 && // player.top is_above enemy.bottom
+    player.y + 100 >= this.y + 50 // player.bottom is_below enemy.top
+  ) {
     player.resetPosition();
   }
-  
-  
 
-  
+
+
+
 };
 
 
 function randomSpeed(min, max) {
-  var min = 50;
-  var max = 400;
+  min = 50;
+  max = 400;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -72,45 +72,41 @@ Player.prototype.render = function () {
 
 Player.prototype.handleInput = function (key) {
   switch (key) {
-    case 'left':
-      if (this.x === 0) {
-        this.x = 0;
-      }
-      else {
-        this.x -= 100;
-        console.log("left", this.x, this.y);
-      }
-      break;
-      
-    case 'right':
-      if (this.x === 400) {
-        this.x = 400;
-      }
-      else {
-        this.x += 100;
-        console.log("right", this.x, this.y);
-      }
-      break;
-    
-    case 'up':
-      if (this.y === -23) { 
-        this.resetPosition();
-      }
-      else {
-        this.y -= 83;
-        console.log("up", this.x, this.y);
-      }
-      break;
-    
-    case 'down':
-      if (this.y === 400) {
-        this.y = 400;
-      }
-      else {
-        this.y += 83;
-        console.log("down", this.x, this.y);
-      }
-      break;
+  case 'left':
+    if (this.x === 0) {
+      this.x = 0;
+    } else {
+      this.x -= 100;
+      console.log("left", this.x, this.y);
+    }
+    break;
+
+  case 'right':
+    if (this.x === 400) {
+      this.x = 400;
+    } else {
+      this.x += 100;
+      console.log("right", this.x, this.y);
+    }
+    break;
+
+  case 'up':
+    if (this.y === 60) {
+      this.resetPosition();
+    } else {
+      this.y -= 83;
+      console.log("up", this.x, this.y);
+    }
+    break;
+
+  case 'down':
+    if (this.y === 400) {
+      this.y = 400;
+    } else {
+      this.y += 83;
+      console.log("down", this.x, this.y);
+    }
+    break;
   }
 
 
@@ -119,15 +115,13 @@ Player.prototype.handleInput = function (key) {
 Player.prototype.resetPosition = function () {
   this.x = 200; // 200
   this.y = 392; // 392
-}
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
 var allEnemies = [];
 
-//var enemy4 = new Enemy (-60, 60 + (83 * 3), 80);
-//allEnemies.push(enemy4);
 
 for (var i = 0; i < 3; i++) {
   allEnemies.push(new Enemy(-50, 60 + (83 * i), randomSpeed())); //60
@@ -153,8 +147,8 @@ document.addEventListener('keyup', function (e) {
   player.handleInput(allowedKeys[e.keyCode]);
 });
 
-///
-clickLocations = [];
+// Using jQuery for logging click locations
+var clickLocations = [];
 
 function logClicks(x, y) {
   clickLocations.push({
@@ -168,5 +162,5 @@ $(document).click(function (loc) {
   // your code goes here!
   var x = loc.pageX;
   var y = loc.pageY;
-  logClicks(x, y)
+  logClicks(x, y);
 });
