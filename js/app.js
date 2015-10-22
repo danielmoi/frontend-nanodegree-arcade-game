@@ -112,57 +112,58 @@ Player.prototype.handleInput = function (key) {
 };
 
 Player.prototype.resetPosition = function () {
-    this.x = 200; // 200
-    this.y = 392; // 392
+  this.x = 200; // 200
+  this.y = 392; // 392
+};
 
 
-    // Now instantiate your objects.
-    // Place all enemy objects in an array called allEnemies
+// Now instantiate your objects.
+// Place all enemy objects in an array called allEnemies
 
-    var allEnemies = [];
-
-
-    for (var i = 0; i < 3; i++) {
-      allEnemies.push(new Enemy(-50, 60 + (83 * i), randomSpeed())); //60
-    }
+var allEnemies = [];
 
 
-
-    // Place the player object in a variable called player
-
-    var player = new Player(200, 392);
+for (var i = 0; i < 3; i++) {
+  allEnemies.push(new Enemy(-50, 60 + (83 * i), randomSpeed())); //60
+}
 
 
 
+// Place the player object in a variable called player
+
+var player = new Player(200, 392);
 
 
-    // This listens for key presses and sends the keys to your
-    // Player.handleInput() method. You don't need to modify this.
-    document.addEventListener('keyup', function (e) {
-      var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-      };
 
-      player.handleInput(allowedKeys[e.keyCode]);
-    });
 
-    // Using jQuery for logging click locations
-    var clickLocations = [];
 
-    function logClicks(x, y) {
-      clickLocations.push({
-        x: x,
-        y: y
-      });
-      console.log('x location: ' + x + '; y location: ' + y);
-    }
+// This listens for key presses and sends the keys to your
+// Player.handleInput() method. You don't need to modify this.
+document.addEventListener('keyup', function (e) {
+  var allowedKeys = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down'
+  };
 
-    $(document).click(function (loc) {
-      // your code goes here!
-      var x = loc.pageX;
-      var y = loc.pageY;
-      logClicks(x, y);
-    });
+  player.handleInput(allowedKeys[e.keyCode]);
+});
+
+// Using jQuery for logging click locations
+var clickLocations = [];
+
+function logClicks(x, y) {
+  clickLocations.push({
+    x: x,
+    y: y
+  });
+  console.log('x location: ' + x + '; y location: ' + y);
+}
+
+$(document).click(function (loc) {
+  // your code goes here!
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x, y);
+});
